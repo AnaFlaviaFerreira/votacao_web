@@ -1,5 +1,5 @@
 {
-    "cSpell.words": ["middlewares"],
+    "cSpell.words": ["middlewares", "usuarios"],
 
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true

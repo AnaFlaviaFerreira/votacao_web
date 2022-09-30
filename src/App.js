@@ -18,11 +18,16 @@ export function App() {
     const [candidates, setCandidates] = useState([]);
 
     useEffect(() => {
-        api.get('/candidates').then(({ data }) => setCandidates(data));
+        api.get('/api/candidatos').then(({ data }) => setCandidates(data));
     }, []);
 
-    const onVote = candidateNumber => {
-        api.post('/vote', { candidateNumber });
+    const onVote = async ({ vote, city, state, age }) => {
+        await api.post('/api/usuarios/salvar', {
+            voto: vote,
+            cidade: city,
+            estado: state,
+            idade: age,
+        });
     };
 
     return (
@@ -41,7 +46,6 @@ export function App() {
                 <TabPanels>
                     <TabPanel>
                         <Heading>Candidates</Heading>
-
                         <List mt={6} spacing={4}>
                             {candidates.map(candidate => (
                                 <ListItem
@@ -56,11 +60,11 @@ export function App() {
                                         objectFit="cover"
                                         objectPosition="top"
                                         rounded="full"
-                                        src={candidate.img}
-                                        alt={candidate.name}
+                                        src={candidate.image}
+                                        alt={candidate.nome}
                                     />
                                     <Heading size="md">
-                                        {candidate.name}
+                                        {candidate.nome}
                                     </Heading>
                                     <Box
                                         w="20"
@@ -72,7 +76,7 @@ export function App() {
                                         placeItems="center"
                                     >
                                         <Heading size="lg">
-                                            {candidate.number}
+                                            {candidate.numero}
                                         </Heading>
                                     </Box>
                                 </ListItem>

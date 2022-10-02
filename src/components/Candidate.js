@@ -22,16 +22,9 @@ export const Candidate = ({ candidate }) => (
         <Container mx="initial">
             <Heading size="md">{candidate.nome}</Heading>
             <Flex align="center" gap={4}>
-                <Progress
-                    flex="1"
-                    value={(candidate.quantidade * 100) / candidate.total_votos}
-                />
+                <Progress flex="1" value={candidate.total_votos} />
                 <Text fontWeight="bold">
-                    {(
-                        (candidate.quantidade * 100) /
-                        candidate.total_votos
-                    ).toFixed(2)}{' '}
-                    %
+                    {candidate.total_votos.toFixed(2)} %
                 </Text>
             </Flex>
         </Container>

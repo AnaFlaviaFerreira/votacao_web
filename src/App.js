@@ -18,14 +18,14 @@ export function App() {
         api.get('/api/candidatos').then(({ data }) => setCandidates(data));
     }, []);
 
-    const onVote = async ({ vote, city, state, age }) => {
+    async function onVote({ vote, city, state, age }) {
         await api.post('/api/usuarios/salvar', {
             voto: vote,
             cidade: city,
             estado: state,
             idade: age,
         });
-    };
+    }
 
     return (
         <Container maxW="container.md" py="3">

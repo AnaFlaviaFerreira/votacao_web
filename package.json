@@ -6,8 +6,7 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject",
-        "server": "nodemon server.js"
+        "eject": "react-scripts eject"
     },
     "browserslist": {
         "production": [
@@ -39,8 +38,6 @@
         "eslint-plugin-jsx-a11y": "^6.6.1",
         "eslint-plugin-react": "^7.31.8",
         "eslint-plugin-react-hooks": "^4.6.0",
-        "json-server": "^0.17.0",
-        "nodemon": "^2.0.20",
         "prettier": "^2.7.1"
     }
 }
